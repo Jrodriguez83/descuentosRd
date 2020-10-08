@@ -1,9 +1,7 @@
 import 'package:descuentos_rd/Widgets/CustomButton.dart';
-import 'package:descuentos_rd/Widgets/CustomTextField.dart';
 import 'package:descuentos_rd/Widgets/Desglose.dart';
+import 'package:descuentos_rd/Widgets/EntrarDatos.dart';
 import 'package:descuentos_rd/Widgets/MainDrawer.dart';
-import 'package:descuentos_rd/Widgets/Switch.dart';
-import 'package:descuentos_rd/Widgets/Titulo.dart';
 import 'package:flutter/material.dart';
 
 class Calculadora extends StatefulWidget {
@@ -12,12 +10,14 @@ class Calculadora extends StatefulWidget {
 }
 
 class _CalculadoraState extends State<Calculadora> {
-  var ingresos = false;
-  var descuentos = false;
+  
+  
   var ingresosBrutos = 0.0;
   double salarioM = 0.0;
   double ingresoE = 0.0;
   double descuentoA = 0.0;
+  bool ingresos;
+  bool descuento;
 
   void getSalario(String salario) {
     salarioM = double.parse(salario);
@@ -31,16 +31,11 @@ class _CalculadoraState extends State<Calculadora> {
     descuentoA = double.parse(descuento);
   }
 
-  void showIngresos(bool value) {
-    setState(() {
-      ingresos = value;
-    });
+  void getIngresos(bool value){
+    ingresos = value;
   }
-
-  void showDescuentos(bool value) {
-    setState(() {
-      descuentos = value;
-    });
+  void getDescuento(bool value){
+    descuento = value;
   }
 
   @override
@@ -53,31 +48,23 @@ class _CalculadoraState extends State<Calculadora> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Titulo('Calculadora'),
-            CustomTextField(
-              labelText: 'Introduzca su salario mensual',
-              hintText: 'Ej: \$20,000',
-              getValue: getSalario,
+            EntrarDatos(
+              getDescuentosAdicionales: getDescuentosAdicionales,
+              getIngresosExtras: getIngresosExtras,
+              getSalario: getSalario,
+              ingresos: getIngresos,
+              descuentos: getDescuento,
             ),
-            CustomSwitch('Ingresos Extras', showIngresos),
-            if (ingresos == true)
-              CustomTextField(
-                labelText: 'Ingresos Extras',
-                hintText: 'Ej: \$2,000',
-                getValue: getIngresosExtras,
-              ),
-            CustomSwitch('Descuento Adicional', showDescuentos),
-            if (descuentos == true)
-              CustomTextField(
-                labelText: 'Descuento Adicional',
-                hintText: 'Ej: \$1,000',
-                getValue: getDescuentosAdicionales,
-              ),
             CustomButton(
               text: 'Calcular',
               onPressed: () {
                 setState(() {
+                  if(ingresos){
                   ingresosBrutos = salarioM + ingresoE;
+                  }else{
+                    ingresoE = 0.0;
+                    ingresosBrutos = salarioM + ingresoE;
+                  }
                 });
               },
             ),

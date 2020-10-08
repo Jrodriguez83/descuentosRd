@@ -5,11 +5,13 @@ class CustomTextField extends StatelessWidget {
     @required this.labelText,
     @required this.hintText,
     @required this.getValue,
+    @required this.enabled,
   });
 
   final String labelText;
   final String hintText;
   final Function getValue;
+  final bool enabled;
   final controller = TextEditingController();
 
   @override
@@ -17,6 +19,7 @@ class CustomTextField extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(8.0),
       child: TextField(
+        enabled: enabled,
         keyboardType: TextInputType.number,
         decoration:
             InputDecoration(labelText: labelText, hintText: hintText),
