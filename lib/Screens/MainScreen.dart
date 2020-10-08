@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:descuentos_rd/Widgets/CustomButton.dart';
 
 class MainScreen extends StatelessWidget {
   static const descripcion =
@@ -30,14 +31,7 @@ class MainScreen extends StatelessWidget {
                   TextStyle(fontSize: screenSize.width * 0.065),
             ),
           ),
-          Container(
-            width: screenSize.width * 0.9,
-            child: RaisedButton(
-              color: Colors.orange[900],
-              child: Text('Haz tus calculos'),
-              onPressed: () {},
-            ),
-          )
+          CustomButton(text: 'Haz tus calculos',onPressed: (){},)
         ],
       ),
     );
