@@ -1,11 +1,11 @@
 import 'package:descuentos_rd/Screens/mainscreen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
+void main (){
+  runApp(DescuentosRd());
 }
 
-class MyApp extends StatelessWidget {
+class DescuentosRd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
