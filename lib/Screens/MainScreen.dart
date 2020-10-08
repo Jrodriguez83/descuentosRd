@@ -1,3 +1,4 @@
+import 'package:descuentos_rd/Widgets/MainDrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:descuentos_rd/Widgets/CustomButton.dart';
 
@@ -12,6 +13,7 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Descuentos RD'),
       ),
+      drawer: MainDrawer(),
       body: Column(
         children: [
           Padding(
@@ -31,7 +33,9 @@ class MainScreen extends StatelessWidget {
                   TextStyle(fontSize: screenSize.width * 0.065),
             ),
           ),
-          CustomButton(text: 'Haz tus calculos',onPressed: (){},)
+          CustomButton(text: 'Haz tus calculos',onPressed: (){
+            Navigator.of(context).pushReplacementNamed('Calculadora');
+          },)
         ],
       ),
     );
