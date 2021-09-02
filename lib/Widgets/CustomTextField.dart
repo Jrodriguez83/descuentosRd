@@ -5,7 +5,7 @@ class CustomTextField extends StatelessWidget {
     @required this.labelText,
     @required this.hintText,
     @required this.getValue,
-    @required this.enabled,
+    this.enabled,
   });
 
   final String labelText;

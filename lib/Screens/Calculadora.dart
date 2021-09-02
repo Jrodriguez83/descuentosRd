@@ -16,7 +16,7 @@ class _CalculadoraState extends State<Calculadora> {
   double salarioM = 0.0;
   double ingresoE = 0.0;
   double descuentoA = 0.0;
-  bool ingresos;
+  bool ingresos = true;
   bool descuento;
 
   void getSalario(String salario) {

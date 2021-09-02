@@ -12,8 +12,13 @@ class CustomButton extends StatelessWidget {
     var screenSize = MediaQuery.of(context).size;
     return Container(
       width: screenSize.width * 0.9,
-      child: RaisedButton(
-        color: Colors.orange[900],
+      child: ElevatedButton(
+        style: ButtonStyle(
+          foregroundColor:
+              MaterialStateProperty.resolveWith((states) => Colors.white),
+          backgroundColor:
+              MaterialStateProperty.resolveWith((states) => Colors.orange[900]),
+        ),
         child: Text(text),
         onPressed: onPressed,
       ),

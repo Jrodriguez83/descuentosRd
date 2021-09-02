@@ -24,9 +24,8 @@ class EntrarDatos extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Titulo('Calculadora'),
+          Titulo('Calculadora', icon: Icons.calculate_outlined,),
             CustomTextField(
-              enabled: true,
               labelText: 'Introduzca su salario mensual',
               hintText: 'Ej: \$20,000',
               getValue: getSalario,

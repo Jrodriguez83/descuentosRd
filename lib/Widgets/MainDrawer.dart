@@ -8,11 +8,11 @@ class MainDrawer extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.symmetric(vertical: 40.0),
-          child: Text('Descuentos RD'),
+          child: Image.asset('assets/images/descuentos.jpg'),
         ),
           ListTile(
             leading: Icon(Icons.home),
-            title: Text('Home'),
+            title: Text('Inicio'),
             onTap: (){
               Navigator.of(context).pushReplacementNamed('/');
             },
